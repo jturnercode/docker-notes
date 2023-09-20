@@ -6,7 +6,7 @@ The `docker-compose.yaml` file holds instruction to build multi-container applic
 
 .yaml files rely on indetation.
 
-Below is a
+Below is an example `docker-compose.yaml`:
 
 ```
 version: "3.8"
@@ -17,8 +17,8 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: jtpostgres
-      POSTGRES_PASSWORD: pass-emj
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
     volumes:
       - postgres_data:/var/lib/postgresql/data
   pgadmin:
@@ -37,13 +37,16 @@ services:
 
 ```
 
-- services: Define the two services Docker needs to run, “postgres” and “pgadmin.”
-- image: Specifies the Docker Hub images that will be downloaded and used for our services. We don’t apply a tag for them since we want to use the most recent versions. However, if you need a specific one, you can look at the available for PostgreSQL and pgAdmin and use it, specifying it as, for example, “postgres:15.2-alpine.”
-- restart: Configure the Docker container always to restart if it stops unexpectedly.
-- ports: Map the TCP port on your host machine to the container port. This way, the containerized service is exposed outside the container and can be accessed remotely.
-- environment: Set environment variables for application authentication and setup. Be sure to change the values of the “POSTGRES_PASSWORD” environment for the PostgreSQL’s “postgres” admin user and pgAdmin (“PGADMIN_DEFAULT_EMAIL” and “PGADMIN_DEFAULT_PASSWORD“) to what you want.
-- volumes: Mount named Docker volumes for application files to persist your data. Otherwise, the data will be lost when the container restarts.
-- depends_on: Allows you to run services in order. In our case, the “pgadmin” service will not start until “postgres” is not up and running.
+- **version**: specifies docker-compose version, note that wrapped in quotes.
+- **services**: Define the two services Docker needs to run, “postgres” and “pgadmin.”
+- **image**: Specifies the Docker Hub images that will be downloaded and used for our services. We don’t apply a tag for them since we want to use the most recent versions. However, if you need a specific one, you can look at the available for PostgreSQL and pgAdmin and use it, specifying it as, for example, “postgres:15.2-alpine.”
+- **restart**: Configure the Docker container always to restart if it stops unexpectedly.
+- **ports**: Map the TCP port on your host machine to the container port. This way, the containerized service is exposed outside the container and can be accessed remotely.
+- **environment**: Set environment variables for application authentication and setup. Be sure to change the values of the “POSTGRES_PASSWORD” environment for the PostgreSQL’s “postgres” admin user and pgAdmin (“PGADMIN_DEFAULT_EMAIL” and “PGADMIN_DEFAULT_PASSWORD“) to what you want.
+- **volumes**: Mount named Docker volumes for application files to persist your data. Otherwise, the data will be lost when the container restarts.
+- **depends_on**: Allows you to run services in order. In our case, the “pgadmin” service will not start until “postgres” is not up and running.
+
+## compose up & down
 
 Build containers per `docker-compose.yaml` instructions. Run below:
 

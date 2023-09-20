@@ -182,9 +182,29 @@ docker stop <container_id>
 docker rm <container_id>
 ```
 
-### login to container
+## docker exec
 
-starts a terminal inside container. This only worked for me on windows cmd (did not work on git bash prompt).
+Execute a command on a running container
+
+```
+docker exec <container-name> <command>
+```
+
+### exec usage examples
+
+Below prints the contents of etc/hosts file:
+
+```
+docker exec <container-name> cat /etc/hosts
+```
+
+Login to postgres-container as pg-user:
+
+```
+docker exec -it <postgres-container> psql -U <pg-user>
+```
+
+Start a bash inside container. This only worked for me on windows cmd (did not work on git bash prompt).
 
 ```
 docker exec -it <container_name> /bin/bash
