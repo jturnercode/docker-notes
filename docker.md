@@ -44,6 +44,31 @@ docker image pull <image_name>:<image_version/tag>
 
 ## docker build
 
+The `docker build` command builds Docker images from a `Dockerfile` and a "context". A build's context is the set of files located in the specified `PATH` or `URL`. The build process can refer to any of the files in the context. For example, your build can use a `COPY` instruction to reference a file in the context.
+
+The `URL` parameter can refer to three kinds of resources: Git repositories, pre-packaged tarball contexts and plain text files.
+
+_By default the `docker build` command will look for a `Dockerfile` at the root of the build context. `-f` can be used to specify alternate route to file._
+
+```
+docker build [OPTIONS] PATH | URL | -
+```
+
+Typical usage:
+
+```
+docker build --tag <tag_name> .
+```
+
+> NOTE: The _dot(.)_ in the command specifies to the Docker daemon to use the shell’s current working directory
+
+[Options:](https://docs.docker.com/engine/reference/commandline/build/#options)
+
+- --tag [-t] Name and optionally a tag in the name:tag format
+- --file [-f] Name of the Dockerfile (Default is PATH/Dockerfile)
+
+See other options [here](https://docs.docker.com/engine/reference/commandline/build/#options)
+
 ## docker run
 
 ### usage
