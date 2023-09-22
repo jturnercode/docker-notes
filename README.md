@@ -1,8 +1,12 @@
 # docker-notes
 
-repo documenting docker commands as i learn docker
+repo documenting how to use docker with examples.
 
 ## sections
 
 - [docker](docker.md)
-- [docekr-compose](docker-compose.md)
+- [docker-compose](docker-compose.md)
+
+## examples
+
+- [py-plotly](py-plotly)
