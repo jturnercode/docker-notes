@@ -10,3 +10,4 @@ repo documenting how to use docker with examples.
 ## examples
 
 - [py-plotly](py-plotly)
+- [nginx unit-static files](unit-static)
