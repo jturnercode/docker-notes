@@ -62,7 +62,7 @@ docker build --tag <tag_name> .
 
 > NOTE: The _dot(.)_ in the command specifies to the Docker daemon to use the shell’s current working directory
 
-[Options:](https://docs.docker.com/engine/reference/commandline/build/#options)
+Options:
 
 - --tag [-t] Name and optionally a tag in the name:tag format
 - --file [-f] Name of the Dockerfile (Default is PATH/Dockerfile)
@@ -70,8 +70,6 @@ docker build --tag <tag_name> .
 See other options [here](https://docs.docker.com/engine/reference/commandline/build/#options)
 
 ## docker run
-
-### usage
 
 Create and run a new container from an image
 
@@ -85,9 +83,9 @@ common options:
 - --volume [-v] (Bind mount a volume)
 - --publish [-p] (Publish a container's port(s) to the host)
 - --expose (Expose a port or a range of ports)
-- --workdir [-w] (Working directory _inside the container_)
+- --workdir [-w] (run command _inside the container dir specified_)
 - --rm (Automatically remove the container when it exits)
-- -tty [-t] (Allocate a pseudo-TTY, ie. terminal)
+- --tty [-t] (Allocate a pseudo-TTY, ie. terminal)
 - --mount (Attach a filesystem mount to the container)
 - --ip (IPv4 address)
 - --interactive [-i] (Keep STDIN open even if not attached)
@@ -98,7 +96,7 @@ see all options [here](https://docs.docker.com/engine/reference/commandline/run/
 example:
 
 ```
-docker run --name <container_name> -it debian
+docker run -it --name <container_name>  debian
 ```
 
 This example runs a container named test using the debian:latest image. The -it instructs Docker to allocate a pseudo-TTY connected to the container's stdin; creating an interactive bash shell in the container.
