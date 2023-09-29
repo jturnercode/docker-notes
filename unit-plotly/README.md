@@ -46,7 +46,7 @@ docker build --tag=unit-webapp .
 To create and run container:
 
 ```
-docker run --rm -it -p 8080:8000 unit-webapp
+docker run --rm --env-file .tmp-env -it -p 8080:8000 unit-webapp
 ```
 
 > **NOTE:**  
@@ -58,7 +58,7 @@ In Dockerfile comment out line 10 & 11 to run container with below commands:
 
 ```
 export UNIT=$(                                                         \
-      docker run --rm -it                                                      \
+      docker run --rm -it  --env-file .tmp-env                    \
       --mount type=bind,src="$(pwd)/config/",dst=/docker-entrypoint.d/   \
       --mount type=bind,src="$(pwd)/log/unit.log",dst=/var/log/unit.log  \
       --mount type=bind,src="$(pwd)/state",dst=/var/lib/unit             \
