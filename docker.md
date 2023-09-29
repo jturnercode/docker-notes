@@ -90,16 +90,18 @@ common options:
 - --ip (IPv4 address)
 - --interactive [-i] (Keep STDIN open even if not attached)
 - --detach [-d] (Run container in background and print container ID)
+- --env [-e] (Set environment variables)
+- --env-file (Read in a file of environment variables)
 
 see all options [here](https://docs.docker.com/engine/reference/commandline/run/)
 
 example:
 
 ```
-docker run -it --name <container_name>  debian
+docker run --rm -it --env-file .env --name <container_name>  <image-to-run>
 ```
 
-This example runs a container named test using the debian:latest image. The -it instructs Docker to allocate a pseudo-TTY connected to the container's stdin; creating an interactive bash shell in the container.
+This example runs a container with named <container_name> for the specified <image-to-run>. The `-it` instructs Docker to allocate a pseudo-TTY connected to the container's stdin; creating an interactive bash shell in the container. `--rm` will automatically remove container if it closes. `--env-file` will read the .env file in build directory and add variables to container for use.
 
 ### detach
 
