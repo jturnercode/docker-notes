@@ -8,9 +8,9 @@
 
 ## [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 
-A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+A Dockerfile is a text document that contains all the commands to assemble an image. This is an alternative and way to reproduce steps rather than just typing commands into command line interface.
 
-Set of instructions to build an image
+The file has to be named `Dockerfile` for docker commands to execute properly.
 
 ### format
 
@@ -22,6 +22,8 @@ INSTRUCTION arguments
 Docker treats lines that begin with `#` as a comment.
 
 ## image
+
+Docker images are files with a set of instructions to build a Docker container, like a template. A Docker image contains application code, libraries, tools, dependencies and other files needed to make an application run.
 
 ### list images
 
