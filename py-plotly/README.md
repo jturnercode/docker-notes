@@ -1,6 +1,6 @@
 # python plotly docker
 
-Docker example using python
+Simple plotly app using python docker image. Demonstrates how plotly can be run on docker.
 
 ## contents
 
@@ -26,7 +26,7 @@ docker build -t py-plotly-img .
 docker run -it --rm --name plotly-cont -p 8081:8081 -p 8082:8082 py-plotly-img
 ```
 
-docker container should run with no errors, goto `localhost:8081` or `localhost:8081` to see plotly dashboards.
+docker container should run with no errors, goto `localhost:8081` or `localhost:8082` to see plotly dashboards.
 
 ## todo
 
