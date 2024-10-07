@@ -212,7 +212,23 @@ Start a bash inside container. This only worked for me on windows cmd (did not w
 docker exec -it <container_name> /bin/bash
 ```
 
+## prune
+
+The host machine after a while may run low on disk memory. below command should be run to remove all unused containers, networks, images (both dangling and unused), and optionally, volumes.
+
+```
+docker system prune
+```
+
+## bind mounts
+
+### Sharing local files with containers.
+
+If you have specific files or directories on your host system that you want to directly share with your container, like configuration files or development code, then you would use a bind mount. It's like opening a direct portal between your host and container for sharing.
+
 ## volumes
+
+If you want to ensure that data generated or modified inside the container persists even after the container stops running, you would opt for a volume.
 
 ### create volume
 
